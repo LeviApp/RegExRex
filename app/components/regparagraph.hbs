@@ -1,0 +1,16 @@
+{{yield}}
+<div class="regp">
+    <section>
+        <input type="text" class="rInput" value="\b\w{2,4}\b">
+        <button {{ on "click" this.regexFind}} type="button">RegEx Submit</button>
+    </section>
+
+    <section>
+        <input type="text" class="pInput">
+        <button {{ on "click" this.changeParagraph}} class="pButton" type="button">Paragraph Submit</button>
+
+    </section>
+    <p>
+        {{{this.para}}}
+    </p>
+</div>
