@@ -8,11 +8,20 @@ export default class LessonComponent extends Component {
 
     @tracked
     lesson = {
-        1: ["Lesson 1:", "Lesson"],
-        2: ["Lesson 2:", "2"],
-        3: ["Lesson 3:", ""]
-
+        1: ["Lesson 1: Beginnings", "Welcome to the RegEx Rex lessons. RegEx is a way to search for patterns in text. You can search for letters, words, and digits. You can search for a certain length of words and a lot of other patterns. In normal searches, what is being used are literal characters. Searching for 'code' is searching for the exact pattern of letters that spell out the word. In the first couple of lessons, we will be focusing on literal characters to explore different patterns that RegEx can be used for. The first pattern we will discuss is the beginning. RegEx can be used to search for a pattern at the very start of a text block. Using literal characters, your first challenge is to search for the first word in this paragraph."],
+        2: ["Lesson 2: The In-Between", "Another pattern", "2"],
+        3: ["Lesson 3: The Finish", "The next pattern", " "]
     }
+
+    @tracked
+    solution = {
+        1: ["Welcome"],
+        2: ["Lesson 2: The In-Between", "Another pattern", "2"],
+        3: ["Lesson 3: The Finish", "The next pattern", " "]
+    }
+
+    @tracked
+    answer = this.lesson[this.index]
 
     @tracked lessonpara = this.lesson[this.index]
     @tracked lessonparaSolid = this.lesson[this.index]
@@ -24,31 +33,35 @@ export default class LessonComponent extends Component {
     @action
     regexFind() {
         this.lessonpara = this.lesson[this.index]
+        this.answer = this.solution[this.index]
+
         this.lessonparaSolid = this.lesson[this.index]
-      let val1 = this.lessonpara[0]
-      let val2 = this.lessonpara[1]
+        let val1 = this.lessonpara[0]
+        let val2 = this.lessonpara[1]
+        let val3 = this.answer[0]
 
-      console.log(val1)
-      this.rInput = document.getElementsByClassName('rInput')[0].value;
-      this.rVal = new RegExp(this.rInput, 'g');
-      this.lessonpara = []
-      this.lessonpara.push(val1.replace(this.rVal, `<span>$&</span>`), val2)
+        console.log(val3)
+        this.rInput = document.getElementsByClassName('rInput')[0].value;
+        this.rVal = new RegExp(this.rInput, 'g');
+        this.lessonpara = []
+        this.lessonpara.push(val1, val2.replace(this.rVal, `<span>$&</span>`))
 
-      console.log(this.lessonpara, "This is it!")
-      console.log(val1, val2)
-      if (val1.replace(this.rVal, `<span>$&</span>`) === val1.replace(val2, `<span>$&</span>`)) {
-          this.index = this.index+1
-          this.correct = true
-      }
+        console.log(this.lessonpara, "This is it!")
+        console.log(val1, val2)
+        if (val2.replace(this.rVal, `<span>$&</span>`) === val2.replace(val3, `<span>$&</span>`)) {
+            this.index = this.index+1
+            this.correct = true
+        }
 
-      else {
+        else {
         this.correct = false
-      }
+        console.log("testing false")
+        }
     }
 
     @action
     nextLesson() {
-
+        document.getElementsByClassName('rInput')[0].value = "";
         this.correct = false
         this.lessonpara = this.lesson[this.index]
         this.lessonparaSolid = this.lesson[this.index]

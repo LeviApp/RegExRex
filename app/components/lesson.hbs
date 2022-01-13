@@ -2,13 +2,17 @@
 <div class="regp">
     <section>
         <input type="text" class="rInput" value="">
+        
+        {{#if this.correct}}
+        <button disabled=true type="button">RegEx Submit</button>
+        {{else}}
         <button {{ on "click" this.regexFind}} type="button">RegEx Submit</button>
+        {{/if}}
+
     </section>
 
-    {{#each this.lessonpara as |item|}}
-        <p>
-            {{{item}}}
-        </p>
+    {{#each this.lessonpara as |item index|}}
+            <p>{{{item}}}</p>        
     {{/each}}
 
     {{#if this.correct}}
