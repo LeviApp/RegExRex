@@ -1,0 +1,17 @@
+{{yield}}
+<div class="regp">
+    <section>
+        <input type="text" class="rInput" value="">
+        <button {{ on "click" this.regexFind}} type="button">RegEx Submit</button>
+    </section>
+
+    {{#each this.lessonpara as |item|}}
+        <p>
+            {{{item}}}
+        </p>
+    {{/each}}
+
+    {{#if this.correct}}
+        <button {{ on "click" this.nextLesson}} type="button">Continue</button>
+    {{/if}}
+</div>

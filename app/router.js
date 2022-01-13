@@ -14,5 +14,5 @@ Router.map(function () {
   //   this.route('game');
   // });
   this.route('not-found', { path: '/*path' });
+  this.route('lesson');
 });
-
