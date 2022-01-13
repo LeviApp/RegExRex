@@ -23,8 +23,8 @@ export default class RegparagraphComponent extends Component {
   @action
   regexFind() {
     this.para = this.paraSolid;
-    this.pInput = document.getElementsByClassName('rInput')[0].value;
-    this.rVal = new RegExp(this.pInput, 'g');
+    this.rInput = document.getElementsByClassName('rInput')[0].value;
+    this.rVal = new RegExp(this.rInput, 'g');
     console.log(this.rVal, this.para);
     this.para = this.para.replace(this.rVal, `<span>$&</span>`);
   }
