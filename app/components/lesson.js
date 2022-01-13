@@ -9,14 +9,14 @@ export default class LessonComponent extends Component {
     @tracked
     lesson = {
         1: ["Lesson 1: Beginnings", "Welcome to the RegEx Rex lessons. RegEx is a way to search for patterns in text. You can search for letters, words, and digits. You can search for a certain length of words and a lot of other patterns. In normal searches, what is being used are literal characters. Searching for 'code' is searching for the exact pattern of letters that spell out the word. In the first couple of lessons, we will be focusing on literal characters to explore different patterns that RegEx can be used for. The first pattern we will discuss is the beginning. RegEx can be used to search for a pattern at the very start of a text block. Using literal characters, your first challenge is to search for the first word in this paragraph."],
-        2: ["Lesson 2: The In-Between", "Another pattern", "2"],
+        2: ["Lesson 2: The In-Between", "Another pattern that RegEx accounts for is, obviously, found in the middle. RegEx isn't only for patterns at the start of a text block. At any point in the middle of a text block, RegEx can search for a pattern. Roses are red and violets are blue, using literal characters search for one of Rex's colors in this paragraph if you want to continue."],
         3: ["Lesson 3: The Finish", "The next pattern", " "]
     }
 
     @tracked
     solution = {
         1: ["Welcome"],
-        2: ["Lesson 2: The In-Between", "Another pattern", "2"],
+        2: ["red"],
         3: ["Lesson 3: The Finish", "The next pattern", " "]
     }
 
