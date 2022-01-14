@@ -1,5 +1,4 @@
 .regp
-    background: springgreen
     display: flex
     flex-direction: column
     width: 100%
@@ -38,11 +37,47 @@
         @media only screen and (max-width: 1024px)
             flex-direction: column
 
+    button
+        width: 100%
+        padding: 10px
+        font-size: 1.5rem
+        background: lightgray
+        &:hover
+            background: green
+            cursor: pointer
+            color: white
+        @media only screen and (max-width: 1024px)
+            font-size: 1.25rem
+            width: 100%
+            margin: 0
+
+    .lesson
+        display: flex
+        flex-direction: column
+        h2
+            font-size: 1.25rem
+            padding: 20px
+            background: springgreen
+
+
+        p
+            font-size: 1.5rem
+            padding: 20px
+            overflow-wrap: break-word
+            margin: 20px 0 0 0
+            border: 2px dashed black
+            background: springgreen
+
+        span
+            background: white
 
     p
         font-size: 1.5rem
         padding: 20px
         overflow-wrap: break-word
-        margin: 0
+        margin: 20px 0 0 0
+        border: 2px dashed black
+        background: springgreen
     span
         background: white
+        
