@@ -1,7 +1,13 @@
 {{yield}}
 <div class="regp">
-    <section>
+    <section class="search">
+        <div>
+        <h2>/</h2>
         <input type="text" class="rInput" value="\b\w{2,4}\b">
+        <h2>/</h2>
+        <input class="flags" type="text" value="g">
+        </div>
+
         <button {{ on "click" this.regexFind}} type="button">RegEx Submit</button>
     </section>
 

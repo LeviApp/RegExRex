@@ -10,6 +10,8 @@ export default class RegparagraphComponent extends Component {
 
   @tracked pInput = '';
   @tracked rInput = '\bw{4}\b';
+  @tracked flagInput = 'g';
+
   @tracked rVal = '';
 
   @action
@@ -24,7 +26,8 @@ export default class RegparagraphComponent extends Component {
   regexFind() {
     this.para = this.paraSolid;
     this.rInput = document.getElementsByClassName('rInput')[0].value;
-    this.rVal = new RegExp(this.rInput, 'g');
+    this.flagInput = document.getElementsByClassName('flags')[0].value;
+    this.rVal = new RegExp(this.rInput, this.flagInput);
     console.log(this.rVal, this.para);
     this.para = this.para.replace(this.rVal, `<span>$&</span>`);
   }
