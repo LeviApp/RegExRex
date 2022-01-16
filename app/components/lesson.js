@@ -5,7 +5,7 @@ import { action } from '@ember/object';
 export default class LessonComponent extends Component {
     
     
-    @tracked index = 9;
+    @tracked index = 1;
 
     @tracked
     lesson = {
