@@ -15,11 +15,15 @@
         {{/if}}
     </section>
         {{#if this.correct}}
-        <button {{ on "click" this.nextLesson}} type="button">Continue</button>
+        <button class="continue" {{ on "click" this.nextLesson}} type="button">Continue</button>
         {{/if}}
         
     <section class="lesson">
         <h2>{{{this.lessonexplain}}}</h2>
         <p>{{{this.lessonpara}}}</p>
+            {{#each @posts as |post|}}
+                <h1>{{post.title}}</h1>
+            {{/each}}
     </section>
 </div>
+
