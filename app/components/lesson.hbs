@@ -13,10 +13,10 @@
         {{else}}
         <button {{ on "click" this.regexFind}} type="button">RegEx Submit</button>
         {{/if}}
-    </section>
         {{#if this.correct}}
         <button class="continue" {{ on "click" this.nextLesson}} type="button">Continue</button>
         {{/if}}
+    </section>
         
     <section class="lesson">
         <p>{{{this.lessonexplain}}}</p>
