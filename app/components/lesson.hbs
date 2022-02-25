@@ -20,6 +20,20 @@
         
     <section class="lesson">
         <p>{{{this.lessonexplain}}}</p>
+        <section class="search">
+            <div>
+            <h2>/</h2>
+            <input type="text" class="rInput" value="">
+            <h2>/</h2>
+            <input class="flags" type="text">
+            </div>
+
+            {{#if this.correct}}
+            <button disabled=true type="button">RegEx Submit</button>
+            {{else}}
+            <button {{ on "click" this.regexFind}} type="button">RegEx Submit</button>
+            {{/if}}
+        </section>
         <pre>{{{this.lessonpara}}}</pre>
             {{!-- {{#each @posts as |post|}}
                 <h1>{{post.title}}</h1>
