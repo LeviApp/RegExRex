@@ -6,9 +6,10 @@ import {
   action
 } from '@ember/object';
 
+import { computed, set } from '@ember/object';
 export default class LessonComponent extends Component {
 
-  @tracked index = 5;
+  @tracked index = 1;
 
   @tracked
   lessons = [
@@ -278,13 +279,44 @@ export default class LessonComponent extends Component {
     },
   ];
 
-  @tracked
-  lesson = this.lessons.filter((l) => l.lesson_number === this.index);
+  @computed('index')
+  get lesson() {
+    return this.lessons.filter((l) => l.lesson_number === this.index)
+  }
 
-  @tracked lessonexplain = this.lesson[0]["lesson_main"];
-  @tracked lessonpara = this.lesson[0]["lesson_challenge"];
-  @tracked lessonparaSolid = this.lesson[0]["lesson_challenge"];
-  @tracked solution = this.lesson[0]["lesson_solution"];
+  @computed('index')
+  get lessonexplain() {
+    return this.lesson[0]["lesson_main"];
+  }
+
+  set lessonexplain(val) {
+    return val;
+  }
+
+  @computed('index')
+  get lessonpara() {
+    return this.lesson[0]["lesson_challenge"];
+  }
+
+  set lessonpara(val) {
+    return val;
+  }
+
+  @computed('index')
+  get lessonparaSolid() {
+    return this.lesson[0]["lesson_challenge"];
+  }
+
+  @computed('index')
+  get solution() {
+    return this.lesson[0]["lesson_solution"];
+  }
+
+  set solution(val) {
+    return val;
+  }
+  
+  // @tracked lessonexplain = this.lesson[0]["lesson_main"];
   @tracked rInput = '';
   @tracked flagInput = '';
 
@@ -294,11 +326,8 @@ export default class LessonComponent extends Component {
 
   @action
   regexFind() {
-    // console.log(post, "poster")
-
-    this.lessonexplain = this.lesson[0]["lesson_main"];
+    console.log(this.lesson, this.index, "poster", this.solution)
     this.lessonpara = this.lesson[0]["lesson_challenge"];
-    this.lessonparaSolid = this.lesson[0]["lesson_challenge"];
     this.solution = this.lesson[0]["lesson_solution"];
 
     this.rInput = document.getElementsByClassName('rInput')[0].value;
@@ -318,11 +347,12 @@ export default class LessonComponent extends Component {
       this.lessonparaSolid.replace(this.rVal, `<span>$&</span>`) ===
       this.lessonparaSolid.replace(this.solution, `<span>$&</span>`) || this.solution === String(this.rVal)
     ) {
-      this.index = this.index + 1;
       this.correct = true;
     } else {
       this.correct = false;
     }
+    console.log(this.lesson, this.index, "poster2", this.solution)
+
   }
 
   @action
@@ -332,12 +362,9 @@ export default class LessonComponent extends Component {
     document.getElementsByClassName('flags')[0].value = '';
     // this.index = localStorage.getItem('lessonI');
     this.correct = false;
-    if (this.index <= 33) {
-      this.lessonexplain = this.lesson[0]["lesson_main"];
-      this.lessonpara = this.lesson[0]["lesson_challenge"];
-      this.lessonparaSolid = this.lesson[0]["lesson_challenge"];
-      this.solution = this.lesson[0]["lesson_solution"];
-    } else {
+    this.index = this.index + 1;
+
+    if (this.index > 33) {
       this.lessonexplain = 'CONGRATULATIONS!';
       this.lessonpara = "You finished RegEx Rex's course.";
     }
