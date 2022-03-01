@@ -9,7 +9,8 @@ import {
 import { computed, set } from '@ember/object';
 export default class LessonComponent extends Component {
 
-  @tracked index = 1;
+  
+  @tracked index = Number(localStorage.getItem('index')) || 1;
 
   @tracked
   lessons = [
@@ -326,7 +327,7 @@ export default class LessonComponent extends Component {
 
   @action
   regexFind() {
-    console.log(this.lesson, this.index, "poster", this.solution)
+    console.log(localStorage.getItem('index'), "poster")
     this.lessonpara = this.lesson[0]["lesson_challenge"];
     this.solution = this.lesson[0]["lesson_solution"];
 
@@ -357,14 +358,16 @@ export default class LessonComponent extends Component {
 
   @action
   nextLesson() {
-
+    localStorage.clear();
     document.getElementsByClassName('rInput')[0].value = '';
     document.getElementsByClassName('flags')[0].value = '';
     // this.index = localStorage.getItem('lessonI');
     this.correct = false;
     this.index = this.index + 1;
-
+    localStorage.setItem('index', this.index);
+    console.log(Number(localStorage.getItem('index')))
     if (this.index > 33) {
+      localStorage.clear();
       this.lessonexplain = 'CONGRATULATIONS!';
       this.lessonpara = "You finished RegEx Rex's course.";
     }
