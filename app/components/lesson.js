@@ -286,6 +286,16 @@ export default class LessonComponent extends Component {
   }
 
   @computed('index')
+  get lessonnumber() {
+    return this.lesson[0]["lesson_number"];
+  }
+
+  @computed('index')
+  get lessontitle() {
+    return this.lesson[0]["lesson_title"];
+  }
+
+  @computed('index')
   get lessonexplain() {
     return this.lesson[0]["lesson_main"];
   }
@@ -358,7 +368,6 @@ export default class LessonComponent extends Component {
 
   @action
   nextLesson() {
-    localStorage.clear();
     document.getElementsByClassName('rInput')[0].value = '';
     document.getElementsByClassName('flags')[0].value = '';
     // this.index = localStorage.getItem('lessonI');
