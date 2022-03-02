@@ -57,25 +57,94 @@
     .lesson
         display: flex
         flex-direction: column
-        h2
-            font-size: 1.5rem
-            padding: 20px
-            background: springgreen
-            margin: 0px
+        position: relative
+        div
+            display: flex
+            align-items: center
+            h2
+                font-size: 1.5rem
+                padding: 20px
+                background: springgreen
+                margin: 0px
+                @media only screen and (max-width: 1024px)
+                    margin-right: 0
+            button
+                display: flex
+                align-items: center
+                margin: 0
+                width: 75px
+                background: transparent
+                border: none
+                @media only screen and (max-width: 1024px)
+                    flex-direction: row
+                    &::after
+                        margin-left: 5px
+                        content: "help?"
+                        color: red  
+                &:hover
+                    &::after
+                        margin-left: 5px
+                        content: "help?"
+                        color: red                
+                img
+                    width: 50px
+            .helpO
+                &::after
+                    margin-left: 5px
+                    content: "help?"
+                    color: red       
             @media only screen and (max-width: 1024px)
-                margin-right: 0
+                flex-direction: column-reverse
+                width: 95%  
         p, pre
             font-size: 1.5rem
             padding: 20px
             overflow-wrap: anywhere
             white-space: pre-wrap
-            margin: 0px 20px 20px
+            width: 90%
+            margin: 0px 20px 20px 20px
             border: 2px dashed black
             background: springgreen    
             @media only screen and (max-width: 1024px)
-                margin-right: 0
+                margin: 0 0 20px 0
         span
             background: white
+        .help
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            position: absolute
+            top: 75px
+            height: 100%
+            width: 90%
+            padding: 20px
+            background: #00FF80
+            border: 2px dashed black
+            @media only screen and (max-width: 1024px)
+                top: 148px
+
+            section
+                display: grid
+                grid-template-columns: 1fr 2fr 1fr
+                width: 100%
+                div
+                    display: flex
+                    justify-content: space-start
+                    flex-direction: row
+                    width: 100%
+                h4
+                    color: red
+                    font-weight: bold
+                    font-size: 1.5rem
+                    margin: 2px
+                    @media only screen and (max-width: 1024px)
+                        font-size: 1.25rem
+                p
+                    all: initial
+                    font-family: "Inter var","Inter web",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji
+                    font-size: 1.25rem
+                    @media only screen and (max-width: 1024px)
+                        font-size: 1rem
 
     p, pre
         font-size: 1.5rem

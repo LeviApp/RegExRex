@@ -19,12 +19,51 @@
     </section>
         
     <section class="lesson">
+        <div>
         <h2>Lesson {{this.lessonnumber}}: {{this.lessontitle}}</h2>
+        <button {{ on "click" this.helpToggle}} class="{{if this.helpOpen "helpO"}}"><img src="/assets/img/help.png" alt="logo"></button>
+        </div>
         <p>{{{this.lessonexplain}}}</p>
         <pre>{{{this.lessonpara}}}</pre>
             {{!-- {{#each @posts as |post|}}
                 <h1>{{post.title}}</h1>
             {{/each}} --}}
+        
+        {{#if this.helpOpen}}
+            <div class="help">
+                <h3>Position</h3>
+                <section>
+                    <h4>^</h4>
+                    <p>Start of text block</p>
+                    <div>
+                        <p>/</p>
+                        <h4>^</h4>
+                        <p>Start/</p>
+                    </div>
+                </section>
+                <section>
+                    <h4>$</h4>
+                    <p>End of text block</p>
+                    <div>
+                        <p>/end!</p>
+                        <h4>$</h4>
+                        <p>/</p>
+                    </div>
+                </section>
+                <section>
+                    <h4>^ ... $</h4>
+                    <p>Entire text block</p>
+                    <div>
+                        <p>/</p>
+                        <h4>^</h4>
+                        <p>\w\d</p>
+                        <h4>$</h4>
+                        <p>/</p>
+
+                    </div>
+                </section>
+            </div>    
+        {{/if}}
     </section>
 </div>
 
