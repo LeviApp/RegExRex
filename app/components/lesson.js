@@ -12,6 +12,8 @@ export default class LessonComponent extends Component {
   
   @tracked index = Number(localStorage.getItem('index')) || 1;
 
+  @tracked helpOpen = false;
+
   @tracked
   lessons = [
     {
@@ -380,5 +382,10 @@ export default class LessonComponent extends Component {
       this.lessonexplain = 'CONGRATULATIONS!';
       this.lessonpara = "You finished RegEx Rex's course.";
     }
+  }
+
+  @action
+  helpToggle() {
+    this.helpOpen = !this.helpOpen;
   }
 }
