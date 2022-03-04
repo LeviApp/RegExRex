@@ -273,6 +273,48 @@
                         <p>*$/</p>
                     </div>
                 </section>
+
+                <h3>Character Classes</h3>
+
+                <section>
+                    <h4>[2357]</h4>
+                    <p>Individual characters</p>
+                    <div>
+                        <p>/\d</p>
+                        <h4>[2357]</h4>
+                        <p>/g</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>[n-m]</h4>
+                    <p>Range of characters n-m</p>
+                    <div>
+                        <p>/</p>
+                        <h4>[3-6e-v]</h4>
+                        <p>+/g</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>[(-:]</h4>
+                    <p>Range based on ASCII values</p>
+                    <div>
+                        <p>/^</p>
+                        <h4>[(-:]</h4>
+                        <p>{4,}$/</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>[^not]</h4>
+                    <p>Characters not in character class</p>
+                    <div>
+                        <p>/</p>
+                        <h4>[^o-u]</h4>
+                        <p>{5}/</p>
+                    </div>
+                </section>
             </div>    
         {{/if}}
     </section>
