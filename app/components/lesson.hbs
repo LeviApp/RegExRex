@@ -165,6 +165,114 @@
                         <p>/g</p>
                     </div>
                 </section>
+                <h3>Metacharacters</h3>
+                <section>
+                    <h4>\s</h4>
+                    <p>Space</p>
+                    <div>
+                        <p>/\w</p>
+                        <h4>\s</h4>
+                        <p>\w/g</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>\S</h4>
+                    <p>Any character but space</p>
+                    <div>
+                        <p>/\b</p>
+                        <h4>\S</h4>
+                        <p>{3}\b/g</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>.</h4>
+                    <p>Any character</p>
+                    <div>
+                        <p>/^</p>
+                        <h4>.</h4>
+                        <p>\s</p>
+                        <h4>..</h4>
+                        <p>\s</p>
+                        <h4>...</h4>
+                        <p>/</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>.*?</h4>
+                    <p>Make character ungreedy</p>
+                    <div>
+                        <p>/a</p>
+                        <h4>.*?</h4>
+                        <p>u/g</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>\b</h4>
+                    <p>Break</p>
+                    <div>
+                        <p>/</p>
+                        <h4>\b</h4>
+                        <p>\w{6,}</p>
+                        <h4>\b</h4>
+                        <p>/g</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>\B</h4>
+                    <p>Non-break character</p>
+                    <div>
+                        <p>/</p>
+                        <h4>\B</h4>
+                        <p>[ou]{2}</p>
+                        <h4>\B</h4>
+                        <p>/g</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>\d</h4>
+                    <p>Digit character</p>
+                    <div>
+                        <p>/\(</p>
+                        <h4>\d</h4>
+                        <p>{3}\)/g</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>\D</h4>
+                    <p>Any character but digit</p>
+                    <div>
+                        <p>/\.</p>
+                        <h4>\D</h4>
+                        <p>+\b/g</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>\w</h4>
+                    <p>Word/digit/underscore character</p>
+                    <div>
+                        <p>/</p>
+                        <h4>\w</h4>
+                        <p>+$/</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>\W</h4>
+                    <p>Any character but word/digit/underscore</p>
+                    <div>
+                        <p>/^</p>
+                        <h4>\W</h4>
+                        <p>*$/</p>
+                    </div>
+                </section>
             </div>    
         {{/if}}
     </section>
