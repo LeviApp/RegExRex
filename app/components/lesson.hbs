@@ -59,7 +59,110 @@
                         <p>\w\d</p>
                         <h4>$</h4>
                         <p>/</p>
+                    </div>
+                </section>
+                <h3>Escaping Special Characters</h3>
+                <section>
+                    <h4>\</h4>
+                    <p>. * + ? ( ) { } [ ] ^ \ $ |</p>
+                    <div>
+                        <p>/</p>
+                         <h4>\</h4>
+                        <p>(</p>
+                        <h4>\</h4>
+                        <p>.</p>
+                        <h4>\</h4>
+                        <p>*</p>
+                         <h4>\</h4>
+                        <p>)</p>
+                        <p>/</p>
+                    </div>
+                </section>
+                <h3>Flags</h3>
+                    <section>
+                    <h4>g</h4>
+                    <p>Global flag</p>
+                    <div>
+                        <p>/\b\d{4}\b/</p>
+                        <h4>g</h4>
+                    </div>
+                </section>
 
+                    <section>
+                    <h4>i</h4>
+                    <p>Case-insensitive flag</p>
+                    <div>
+                        <p>/Ember/</p>
+                        <h4>i</h4>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>gi</h4>
+                    <p>Combined flags</p>
+                    <div>
+                        <p>/[a-e]+/</p>
+                        <h4>gi</h4>
+                    </div>
+                </section>
+                <h3>Quantifiers</h3>
+                <section>
+                    <h4>*</h4>
+                    <p>0 or more</p>
+                    <div>
+                        <p>/Zz</p>
+                        <h4>*</h4>
+                        <p>/g</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>+</h4>
+                    <p>1 or more</p>
+                    <div>
+                        <p>/\b/\D</p>
+                        <h4>+</h4>
+                        <p>\b/g</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>?</h4>
+                    <p>0 or 1</p>
+                    <div>
+                        <p>/\w+[-.~]</p>
+                        <h4>?</h4>
+                        <p>\w+/g</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>{n}</h4>
+                    <p>n times</p>
+                    <div>
+                        <p>/^(\s\w+\s)</p>
+                        <h4>{3}</h4>
+                        <p>$/</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>{n,m}</h4>
+                    <p>n to m times</p>
+                    <div>
+                        <p>/\b\d</p>
+                        <h4>{7,9}</h4>
+                        <p>\b/</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>{n,}</h4>
+                    <p>n or more times</p>
+                    <div>
+                        <p>/\.</p>
+                        <h4>{5,}</h4>
+                        <p>/g</p>
                     </div>
                 </section>
             </div>    
