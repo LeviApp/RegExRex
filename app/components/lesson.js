@@ -259,7 +259,7 @@ export default class LessonComponent extends Component {
     {
       "lesson_id": 31,
       "lesson_number": 31,
-      "lesson_title": "For Positive, Look Behind You!",
+      "lesson_title": "Positive Look Behind",
       "lesson_main": "Parentheses used as groups give you an important ability when searching. What happens if you want to search for a pattern, but only include part of it? This is where the concept of look behind and look ahead is important. First, we will discuss positive look behind. /(\\w+[.-]?\\w+)(@\\w+\.\\w+)/g will grab an entire email address. It would grab the email curious-elephant@denverzoo.org. The RegEx also includes two captured groups. The first group will capture everything up to and including the @ symbol. It would grab curious-elephant@ from the example. The second captured group gets the domain name. In this case, denverzoo.org. This is wonderful if you want the entire address. However, what if you just want the domain name? The only extra RegEx you add is, on the group you want to exclude, add ?<= to the beginning, inside the parentheses. /(?<=\\w+[.-]?\\w+@)(\\w+\.\\w+)/g This is called positive look behind. RegEx looks for a pattern that matches an email and excludes the first captured group. Keep in mind that this syntax only applies to groups before and behind the pattern you want to search for. You are putting a list together and want to group everyone based on their titles. You need to find all the names of the doctors, excluding their title.",
       "lesson_challenge": "Mr. Smith, Mrs. Johnson, Dr. Watson, Miss Scarlet, Professor Plum, Doctor Keys, Doctor Einstein, Judge Thomas, Mr. Green, Mrs. White, Dr. Davis, Judge Anderson, Mister Taylor, Colonel Sanders, Col. Mustard, Mister Magoo, Missus Nelson, Dr. Sanchez, Col. Walker, Miss Torres, Judge Campbell, Judge Rivera, Colonel Carter, Mr. Clark, Mrs. Jackson, Missus Moore, Dr. Brown, Doctor Wilson, Judge Jones, Col. Wright, Doctor King, Colonel Scott, Mr. Lewis",
       "lesson_solution": "/(?<=(Dr\\.|Doctor)\\s)\\w+/g"
@@ -267,15 +267,15 @@ export default class LessonComponent extends Component {
     {
       "lesson_id": 32,
       "lesson_number": 32,
-      "lesson_title": "Negative! Look Behind You!",
-      "lesson_main": "Parentheses used as groups give you an important ability when searching. What happens if you want to search for a pattern, but only include part of it? This is where the concept of look behind and look ahead is important. We will discuss negative look behind. /(\\b)ship(\\b)/g will grab every instance of the word ship. This may be what you want to do. However, what if you want to see all the times it is being used as a suffix? Add a ? < ! (without spaces) to the group you want to exclude /(? < !\\b)ship(\\b)/g will grab all of the values where ship is being used as a suffix. RegEx will look inside the captured group. In this case, it contains a break statement \\b. Then, it will make sure all found values of ship is not preceded by that break statement. It excludes every whole word ship, and finds every other time it is used as a suffix. You are creating a dummy design for a book and need to grab all numbers except for Volume numbers.",
+      "lesson_title": "Negative Look Behind",
+      "lesson_main": "Parentheses used as groups give you an important ability when searching. What happens if you want to search for a pattern, but only include part of it? This is where the concept of look behind and look ahead is important. We will discuss negative look behind. /(\\b)ship(\\b)/g will grab every instance of the word ship. This may be what you want to do. However, what if you want to see all the times it is being used as a suffix? Add a ?&#60;! to the group you want to exclude /(?&#60;!\\b)ship(\\b)/g will grab all of the values where ship is being used as a suffix. RegEx will look inside the captured group. In this case, it contains a break statement \\b. Then, it will make sure all found values of ship is not preceded by that break statement. It excludes every whole word ship, and finds every other time it is used as a suffix. You are creating a dummy design for a book and need to grab all numbers except for Volume numbers.",
       "lesson_challenge": "Rex's Guide to Hacking: Volume 1 | The Basics | Chapter 1 | What is a Computer? | Page 1 | Page 2 | Page 3 | Page 4 |Page 5 | Page 6 | Page 7 | Page 8 | Page 9 | Page 10 | Page 11 | Chapter 2 | How do you talk to a computer?| Page 12 | Page 13 | Page 14 | Page 15 | Page 16 | Page 17 | Page 18 | Page 19 | Page 20 | Page 21 | Page 22 | Page 23 | Page 24 | Page 25 | Volume 2 | Intermediate | Chapter 1 | JavaScript | Page 1 | Page 2 | Page 3 | Page 4 | Chapter 2 | Python | Page 5 | Page 6 | Page 7 | Page 8 | Page 9 | Page 10 | Page 11 | Page 12 | Volume 3 | Expert | Chapter 1 | Angular | Page 1 | Page 2 | Page 3 | Page 4 | Page 5 | Chapter 2 | React | Page 6 | Page 7 | Page 8 | Page 9 | Page 10 | Page 11 | Page 12 | Page 13 | Page 14",
       "lesson_solution": "/(?<!Volume\\s)\\d+/g"
     },
     {
       "lesson_id": 33,
       "lesson_number": 33,
-      "lesson_title": "Look Ahead For Positive!",
+      "lesson_title": "Positive Look Ahead",
       "lesson_main": "Parentheses used as groups give you an important ability when searching. What happens if you want to search for a pattern, but only include part of it? This is where the concept of look behind and look ahead is important. We will discuss positive look ahead. What if you want to grab the first part of a pattern and not the second part? This is what look ahead does.  /\\bextra(\\w{4,})/g will grab every word that has extra- as its prefix and at least 4 letters after the prefix. To grab only the prefix 'extra', you can use positive look ahead. Use ?= for the captured group you want to exclude, which is located after another group you want to select. /\\bextra(?=\\w{4,})/g will grab every prefix 'extra' that may be found in the text block. You are given a list of files and their extensions. Using positive look ahead, grab every name of the file excluding the extension.",
       "lesson_challenge": "Here are a list of file names and their extensions. Web: index.js, Program.cs, lesson.hbs, home.html, About.css, Pi.py, Contact.html, Nav.sass, Modal.TS, robotClass.java, Common: WebDev.doc, POLAR.JPG, Sweet.mp3, bridge.png, anatomy.psd, Rome.txt, ourFuture.pdf, summer2020.mp4, Poster.ai",
       "lesson_solution": "/\\w+(?=\\.\\w+)/g"
@@ -283,7 +283,7 @@ export default class LessonComponent extends Component {
     {
       "lesson_id": 34,
       "lesson_number": 34,
-      "lesson_title": "Negatively Speaking, Look Ahead!",
+      "lesson_title": "Negative Look Ahead",
       "lesson_main": "Parentheses used as groups give you an important ability when searching. What happens if you want to search for a pattern, but only include part of it? This is where the concept of look behind and look ahead is important. We will discuss negative look ahead. What if you want to grab the first part of a pattern and not the second part? This is what look ahead does.  /\\d{1,3}(?!,)\\b/g will find all strings of numbers that are not followed by a comma. This may be useful if you want to select all numbers that are not in a place higher than the hundreds place. The break statement ensures the selected numbers have a break statement following, but not a comma. Your task is to find all the team names that are disqualified from the RegEx competition. To be safe from disqualification, a team must make at least ten points.",
       "lesson_challenge": "Bullfrogs: ||||||||||||, Pawns: ||||||||||||||||||, Quarks: |||||||||, Shields: |||||||, Tardigrades: |||||||||||, Xylophones: |||||||||, Prisms: |||||||, Weeds: |||||||||||||||, Snowmen: ||||||, Spiders: ||||||||||, Hammers: |||||||||, Spades: |||||||||||||, Locks: |||||||, Sheep: |||||||||||||, Owls: |||||||, Hail: |||||",
       "lesson_solution": "/\\w+\\b(?!:\\s\\|{10,})/g"
@@ -308,10 +308,20 @@ export default class LessonComponent extends Component {
     return this.lesson[0]["lesson_number"];
   }
 
+  set lessonnumber(val) {
+    return val;
+  }
+
+
   @computed('index')
   get lessontitle() {
     return this.lesson[0]["lesson_title"];
   }
+
+  set lessontitle(val) {
+    return val;
+  }
+
 
   @computed('index')
   get lessonexplain() {
@@ -386,6 +396,7 @@ export default class LessonComponent extends Component {
 
   @action
   nextLesson() {
+    console.log(this.index, 'this is index')
     document.getElementsByClassName('rInput')[0].value = '';
     document.getElementsByClassName('flags')[0].value = '';
     // this.index = localStorage.getItem('lessonI');
@@ -395,6 +406,8 @@ export default class LessonComponent extends Component {
     console.log(Number(localStorage.getItem('index')))
     if (this.index > 35) {
       localStorage.clear();
+      this.lessonnumber = "∞"
+      this.lessontitle = "Mission Accomplished!"
       this.lessonexplain = 'CONGRATULATIONS!';
       this.lessonpara = "You finished RegEx Rex's course.";
     }

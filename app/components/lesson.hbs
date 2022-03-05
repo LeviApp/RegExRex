@@ -315,6 +315,91 @@
                         <p>{5}/</p>
                     </div>
                 </section>
+
+                <h3>Captured Groups</h3>
+
+                <section>
+                    <h4>(this|or|that)</h4>
+                    <p>Alternation</p>
+                    <div>
+                        <p>/</p>
+                        <h4>(\d+|\s+)</h4>
+                        <p>/g</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>(-[a-z]{4}-)</h4>
+                    <p>Group</p>
+                    <div>
+                        <p>/</p>
+                        <h4>(,\w)</h4>
+                        <p>{3}$/</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>([.?!])\1</h4>
+                    <p>Back reference</p>
+                    <div>
+                        <p>/</p>
+                        <h4>([.?!])\1</h4>
+                        <p>/g</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>(?&#60;=\b0\.)\d+</h4>
+                    <p>Positive Look Behind</p>
+                    <div>
+                        <p>/</p>
+                        <h4>(?&#60;=\b0\.)</h4>
+                        <p>\d+/g</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>(?&#60;![cst])h</h4>
+                    <p>Negative Look Behind</p>
+                    <div>
+                        <p>/</p>
+                        <h4>(?&#60;![cst])</h4>
+                        <p>h/gi</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>([a-f])(?=[1-8])</h4>
+                    <p>Positive Look Ahead</p>
+                    <div>
+                        <p>/(\d+)</p>
+                        <h4>(?=0)</h4>
+                        <p>/g</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>(\w+)(?!\s)</h4>
+                    <p>Negative Look Ahead</p>
+                    <div>
+                        <p>/(\w+)</p>
+                        <h4>(?!\s)</h4>
+                        <p>/g</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>(?&#60;=)...(?=)</h4>
+                    <p>Combined Looks</p>
+                    <div>
+                        <p>/</p>
+                        <h4>(?&#60;=-)</h4>
+                        <p>\d{3}</p>
+                        <h4>(?=-)</h4>
+                        <p>/g</p>
+
+                    </div>
+                </section>
             </div>    
         {{/if}}
     </section>
