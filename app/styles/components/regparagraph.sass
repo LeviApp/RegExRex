@@ -121,20 +121,33 @@
             border: 2px dashed black
             @media only screen and (max-width: 1024px)
                 top: 148px
+            h3
+                margin-bottom: 0 
 
             section
-                display: grid
-                grid-template-columns: 1fr 2fr 1fr
+                display: flex
+                flex-direction: column
                 width: 100%
                 div
                     display: flex
-                    justify-content: space-start
+                    justify-content: space-around
+                    align-items: center
                     flex-direction: row
                     width: 100%
+                div:nth-child(even)
+                    justify-content: flex-start
+                div:nth-child(odd)
+                    display: grid
+                    grid-template-columns: 2fr 4fr
+                    grid-gap: 10px
+                    justify-content: flex-start
+                    background: white
+                    margin-top: 20px
+                    padding: 10px 10px 10px 20px
                 h4
                     color: red
                     font-weight: bold
-                    font-size: 1.5rem
+                    font-size: 1.25rem
                     margin: 2px
                     @media only screen and (max-width: 1024px)
                         font-size: 1.25rem
