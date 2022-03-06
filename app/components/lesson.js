@@ -10,7 +10,7 @@ import { computed, set } from '@ember/object';
 export default class LessonComponent extends Component {
 
   
-  @tracked index = Number(localStorage.getItem('index')) || 14;
+  @tracked index = Number(localStorage.getItem('index')) || 1;
 
   @tracked helpOpen = false;
 
