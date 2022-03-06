@@ -10,7 +10,7 @@ import { computed, set } from '@ember/object';
 export default class LessonComponent extends Component {
 
   
-  @tracked index = Number(localStorage.getItem('index')) || 1;
+  @tracked index = Number(localStorage.getItem('index')) || 14;
 
   @tracked helpOpen = false;
 
@@ -123,7 +123,7 @@ export default class LessonComponent extends Component {
     {
       "lesson_id": 14,
       "lesson_number": 14,
-      "lesson_title": "Space: The Final Frontier",
+      "lesson_title": "Space: The Final Frontier!",
       "lesson_main": "RegEx was designed to match patterns. We have discussed patterns that match amounts of letters, like + and *. Now, we will discuss another type of pattern you can match letters with. These are considered general patterns. The first one I will mention is the space. Certainly you can type in a literal space and match spaces, but you can also grab all spaces using a general pattern. In most cases, a general pattern will be preceded by a backslash (\\). To find a space, a RegEx general pattern would look like this. /\\s/. This will grab the first single space. Like any literal character, you can use multiple general characters. /\\s\\s/ will match the first double space. Any other special pattern, like the * and +, discussed already will also work for general patterns. You are editting a paragraph, and realize that the writer added two or more consecutive spaces within the paragraph. Your job is to find these places using the space general pattern.",
       "lesson_challenge": "MVC is a structure used  for web development.   'M' stands for Models. It deals with  data and   allows a web application to communicate with a  database server.    'V' refers to View. This  is  the  physical  items  a user  will  see  on the  webpage  . 'C' is for Controller.  It deals  with all of the logic and  functionality  of  the data being  used.",
       "lesson_solution": "/\\s\\s+/g",
@@ -147,7 +147,7 @@ export default class LessonComponent extends Component {
     {
       "lesson_id": 17,
       "lesson_number": 17,
-      "lesson_title": "Greed Gets Everything!",
+      "lesson_title": "Greedy RegEx!",
       "lesson_main": "An important aspect to consider is the greedy RegEx expression. /.*/ Dot plus star (.*), will give you everything in a text block. This may be useful in many cases to use .* in combination to other patterns. However, you should be aware of the greedy nature of using it. /A.*Z/ will grab the first A and last Z, and include EVERYTHING in between, even if it is another Z. It would find text like 'AbcE47.@#Z'. It would also find a string like this. 'ABMH$%Z123VSMAXzSZ<>Z'  How would you make this expression not greedy? How would you make it so the expression grabs the first A and first Z and everything in between? Simply add a question mark (?) at the end of the star. /A.*?Z/ When using this expression to search for 'ABMH$%Z123VSMAXzSZ<>Z', it will only grab the first A and first Z and everything in between. 'ABMH$%Z'. The concept of greed doesn't just apply to the .*, it can be used if you want to find the first of a character that may be included multiple times. Like the star, just add a question mark at the end to make it not greedy. For example /[A-Z]\\w+?[A-Z]/g will grab every example where there is a capital letter and another one, with one or more lower-case letters between. Your task will be to grab every consecutive string in PI that starts with 0 and ends with 9.",
       "lesson_challenge": "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603486104543266482133936072602491412737245870066063155881748815209209628292540917153643678925903600113305305488204665213841469519415116094330572703657595919530921861173819326117931051185480744623799627495673518857527248912279381830119491298336733624406566430860",
       "lesson_solution": "/0.*?9/g",
