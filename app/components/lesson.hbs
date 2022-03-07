@@ -1,5 +1,6 @@
 {{yield}}
 <div class="regp">
+    {{#if this.unfinished}}
     <section class="search">
         <div>
         <h2>/</h2>
@@ -17,7 +18,7 @@
         <button class="continue" {{ on "click" this.nextLesson}} type="button">Continue</button>
         {{/if}}
     </section>
-        
+    {{/if}}
     <section class="lesson">
         <div>
         <h2>Lesson {{this.lessonnumber}}: {{this.lessontitle}}</h2>

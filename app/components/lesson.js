@@ -10,7 +10,9 @@ import { computed, set } from '@ember/object';
 export default class LessonComponent extends Component {
 
   
-  @tracked index = Number(localStorage.getItem('index')) || 1;
+  @tracked index =  Number(localStorage.getItem('index')) || 1;
+  @tracked unfinished = true;
+
 
   @tracked helpOpen = false;
 
@@ -410,6 +412,7 @@ export default class LessonComponent extends Component {
       this.lessontitle = "Mission Accomplished!"
       this.lessonexplain = 'CONGRATULATIONS!';
       this.lessonpara = "You finished RegEx Rex's course.";
+      this.unfinished = false;
     }
   }
 
