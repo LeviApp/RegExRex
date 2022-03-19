@@ -8,11 +8,10 @@ import {
 
 import { computed, set } from '@ember/object';
 export default class LessonComponent extends Component {
-
   
   @tracked index =  Number(localStorage.getItem('index')) || 1;
   @tracked unfinished = true;
-
+  @tracked finished = localStorage.getItem('finished') || false;
 
   @tracked helpOpen = false;
 
@@ -405,7 +404,8 @@ export default class LessonComponent extends Component {
     this.correct = false;
     this.index = this.index + 1;
     localStorage.setItem('index', this.index);
-    console.log(Number(localStorage.getItem('index')))
+    this.pickLesson(this.index);
+
     if (this.index > 35) {
       localStorage.clear();
       this.lessonnumber = "∞"
@@ -413,11 +413,29 @@ export default class LessonComponent extends Component {
       this.lessonexplain = 'CONGRATULATIONS!';
       this.lessonpara = "You finished RegEx Rex's course.";
       this.unfinished = false;
+      this.finished = true;
+      localStorage.setItem('finished', true);
+
     }
   }
 
   @action
   helpToggle() {
     this.helpOpen = !this.helpOpen;
+  }
+
+  @action
+  pickLesson(val) {
+    let vals = document.querySelectorAll('.lessonSelect button');
+    this.index = val;
+    localStorage.setItem('index', this.index);
+    for (let i = 0; i < vals.length; i++) {
+      if (vals[i].getAttribute('data-id') == this.index) {
+        vals[i].setAttribute('data-select', true)
+      }
+      else {
+        vals[i].setAttribute('data-select', false)
+      }
+  }
   }
 }
