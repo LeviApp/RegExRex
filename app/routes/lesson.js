@@ -6,13 +6,8 @@ export default class LessonRoute extends Route {
   @service store;
   index;
   async model(params) {
-    let val = await this.store.findAll("lesson");
-    console.log("testing the posts", this.store.findAll("lesson"))
-    return val;
-  }
-
-  active() {
-    console.log('testing the lesson model with activate function');
-    console.log(localStorage.getItem('lessonI'), 'does it exist 2');
+    // let val = await this.store.findAll("lesson");
+    // console.log("testing the posts", this.store.findAll("lesson"))
+    // return val;
   }
 }

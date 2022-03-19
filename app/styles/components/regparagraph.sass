@@ -77,7 +77,7 @@
                 display: flex
                 align-items: center
                 margin: 0
-                width: 75px
+                width: 160px
                 background: transparent
                 border: none
                 @media only screen and (max-width: 1024px)
@@ -85,19 +85,21 @@
                     &::after
                         margin-left: 5px
                         content: "help?"
-                        color: red  
-                &:hover
-                    &::after
-                        margin-left: 5px
-                        content: "help?"
-                        color: red                
+                        color: red
+                @media (hover: hover)
+                    &:hover
+                        &::after
+                            margin-left: 5px
+                            content: "help?"
+                            color: red                
                 img
                     width: 50px
             .helpO
                 &::after
                     margin-left: 5px
-                    content: "help?"
-                    color: red       
+                    content: "| help? |"
+                    color: green   
+                    display: inline-block
             @media only screen and (max-width: 1024px)
                 flex-direction: column-reverse
                 width: 100%  
@@ -112,6 +114,7 @@
             background: springgreen    
             @media only screen and (max-width: 1024px)
                 margin: 0 0 20px 0
+                font-size: 1.25rem
         span
             background: white
         .help
@@ -203,3 +206,29 @@
             margin: 10px
     
 
+
+
+
+.lessonSelect
+    display: flex
+    justify-content: center
+    width: 90%
+    flex-wrap: wrap
+    margin: 20px 0
+    button
+        margin: 0
+        width: 50px
+        height: 50px
+
+    button[data-select=true]
+        background: green
+        color: white
+
+
+
+.helpO
+    width: 100%
+    &::after
+        margin-left: 5px
+        content: "help?"
+        color: blue  
