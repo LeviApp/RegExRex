@@ -18,7 +18,7 @@
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "start": "ember serve",
+    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider ember serve",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test"
   },
@@ -29,6 +29,7 @@
     "@glimmer/tracking": "^1.0.4",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
+    "cross-env": "^10.1.0",
     "ember-auto-import": "^1.11.3",
     "ember-cli": "~3.28.4",
     "ember-cli-app-version": "^5.0.0",
