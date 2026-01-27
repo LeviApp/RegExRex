@@ -17,7 +17,6 @@ export default class RegparagraphComponent extends Component {
   @action
   changeParagraph() {
     this.pInput = document.getElementsByClassName('pInput')[0].value;
-    console.log(this.pInput);
     this.para = this.pInput;
     this.paraSolid = this.pInput;
   }
@@ -28,7 +27,6 @@ export default class RegparagraphComponent extends Component {
     this.rInput = document.getElementsByClassName('rInput')[0].value;
     this.flagInput = document.getElementsByClassName('flags')[0].value;
     this.rVal = new RegExp(this.rInput, this.flagInput);
-    console.log(this.rVal, this.para);
     this.para = this.para.replace(this.rVal, `<span>$&</span>`);
   }
 }
