@@ -10,6 +10,6 @@ export default class IndexRoute extends Route {
   // }
 
   model() {
-    console.log('testing the index model');
+    // console.log('testing the index model');
   }
 }

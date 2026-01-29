@@ -299,7 +299,20 @@ export default class LessonComponent extends Component {
     }
   ];
 
+
   @computed('index')
+  get lessonButtons() {
+    let buttons = [];
+    for (let i = 1; i <= 35; i++) {
+      buttons.push({
+        id: i,
+        // This is your logic: compare current loop ID to the tracked index
+        isSelected: i === Number(this.index) 
+      });
+    }
+    return buttons;
+  }
+
   get lesson() {
     return this.lessons.filter((l) => l.lesson_number === this.index)
   }
@@ -419,11 +432,12 @@ export default class LessonComponent extends Component {
 
   @action
   pickLesson(val) {
+    this.correct = false;
     let vals = document.querySelectorAll('.lessonSelect button');
     this.index = val;
     localStorage.setItem('index', this.index);
     for (let i = 0; i < vals.length; i++) {
-      if (vals[i].getAttribute('data-id') == this.index) {
+      if (vals[i].getAttribute('data-id') == 9) {
         vals[i].setAttribute('data-select', true)
       }
       else {

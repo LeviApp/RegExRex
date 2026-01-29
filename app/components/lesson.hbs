@@ -1,52 +1,22 @@
 {{yield}}
 <div class="regp">
     {{#if this.finished}}
-        <div class="lessonSelect">
-            <button data-id=1 data-select=false {{ action this.pickLesson 1}}>1</button>
-            <button data-id=2 data-select=false {{ action this.pickLesson 2}}>2</button>
-            <button data-id=3 data-select=false {{ action this.pickLesson 3}}>3</button>
-            <button data-id=4 data-select=false {{ action this.pickLesson 4}}>4</button>
-            <button data-id=5 data-select=false {{ action this.pickLesson 5}}>5</button>
-            <button data-id=6 data-select=false {{ action this.pickLesson 6}}>6</button>
-            <button data-id=7 data-select=false {{ action this.pickLesson 7}}>7</button>
-            <button data-id=8 data-select=false {{ action this.pickLesson 8}}>8</button>
-            <button data-id=9 data-select=false {{ action this.pickLesson 9}}>9</button>
-            <button data-id=10 data-select=false {{ action this.pickLesson 10}}>10</button>
-            <button data-id=11 data-select=false {{ action this.pickLesson 11}}>11</button>
-            <button data-id=12 data-select=false {{ action this.pickLesson 12}}>12</button>
-            <button data-id=13 data-select=false {{ action this.pickLesson 13}}>13</button>
-            <button data-id=14 data-select=false {{ action this.pickLesson 14}}>14</button>
-            <button data-id=15 data-select=false {{ action this.pickLesson 15}}>15</button>
-            <button data-id=16 data-select=false {{ action this.pickLesson 16}}>16</button>
-            <button data-id=17 data-select=false {{ action this.pickLesson 17}}>17</button>
-            <button data-id=18 data-select=false {{ action this.pickLesson 18}}>18</button>
-            <button data-id=19 data-select=false {{ action this.pickLesson 19}}>19</button>
-            <button data-id=20 data-select=false {{ action this.pickLesson 20}}>20</button>
-            <button data-id=21 data-select=false {{ action this.pickLesson 21}}>21</button>
-            <button data-id=22 data-select=false {{ action this.pickLesson 22}}>22</button>
-            <button data-id=23 data-select=false {{ action this.pickLesson 23}}>23</button>
-            <button data-id=24 data-select=false {{ action this.pickLesson 24}}>24</button>
-            <button data-id=25 data-select=false {{ action this.pickLesson 25}}>25</button>
-            <button data-id=26 data-select=false {{ action this.pickLesson 26}}>26</button>
-            <button data-id=27 data-select=false {{ action this.pickLesson 27}}>27</button>
-            <button data-id=28 data-select=false {{ action this.pickLesson 28}}>28</button>
-            <button data-id=29 data-select=false {{ action this.pickLesson 29}}>29</button>
-            <button data-id=30 data-select=false {{ action this.pickLesson 30}}>30</button>
-            <button data-id=31 data-select=false {{ action this.pickLesson 31}}>31</button>
-            <button data-id=32 data-select=false {{ action this.pickLesson 32}}>32</button>
-            <button data-id=33 data-select=false {{ action this.pickLesson 33}}>33</button>
-            <button data-id=34 data-select=false {{ action this.pickLesson 34}}>34</button>
-            <button data-id=35 data-select=false {{ action this.pickLesson 35}}>35</button>
-
-        </div>
+    <div class="lessonSelect">
+        {{#each this.lessonButtons as |btn|}}
+        <button type="button" data-id={{btn.id}} data-select="{{if btn.isSelected 'true' 'false'}}" {{action
+            this.pickLesson btn.id}}>
+            {{btn.id}}
+        </button>
+        {{/each}}
+    </div>
     {{/if}}
     {{#if this.unfinished}}
     <section class="search">
         <div>
-        <h2>/</h2>
-        <input type="text" class="rInput" value="">
-        <h2>/</h2>
-        <input class="flags" type="text">
+            <h2>/</h2>
+            <input type="text" class="rInput" value="">
+            <h2>/</h2>
+            <input class="flags" type="text">
         </div>
 
         {{#if this.correct}}
@@ -61,483 +31,483 @@
     {{/if}}
     <section class="lesson">
         <div>
-        <h2>Lesson {{this.lessonnumber}}: {{this.lessontitle}}</h2>
-        <button {{ on "click" this.helpToggle}} class="{{if this.helpOpen "helpO"}}"><img src="/assets/img/help.png" alt="logo"></button>
+            <h2>Lesson {{this.lessonnumber}}: {{this.lessontitle}}</h2>
+            <button {{ on "click" this.helpToggle}} class="{{if this.helpOpen " helpO"}}"><img
+                    src="/assets/img/help.png" alt="logo"></button>
         </div>
         <p>{{{this.lessonexplain}}}</p>
         <pre>{{{this.lessonpara}}}</pre>
-            {{!-- {{#each @posts as |post|}}
-                <h1>{{post.title}}</h1>
-            {{/each}} --}}
-        
+        {{!-- {{#each @posts as |post|}}
+        <h1>{{post.title}}</h1>
+        {{/each}} --}}
+
         {{#if this.helpOpen}}
-            <div class="help">
-                <h3>Position</h3>
-                <section>
-                    <div>
+        <div class="help">
+            <h3>Position</h3>
+            <section>
+                <div>
                     <h4>^</h4>
                     <p>Start of text block</p>
-                    </div>
-                    <div>
-                        <p>/</p>
-                        <h4>^</h4>
-                        <p>Start/</p>
-                    </div>
-                </section>
-                <section>
-                    <div>
+                </div>
+                <div>
+                    <p>/</p>
+                    <h4>^</h4>
+                    <p>Start/</p>
+                </div>
+            </section>
+            <section>
+                <div>
                     <h4>$</h4>
                     <p>End of text block</p>
-                    </div>
-                    <div>
-                        <p>/end!</p>
-                        <h4>$</h4>
-                        <p>/</p>
-                    </div>
-                </section>
-                <section>
-                    <div>
+                </div>
+                <div>
+                    <p>/end!</p>
+                    <h4>$</h4>
+                    <p>/</p>
+                </div>
+            </section>
+            <section>
+                <div>
                     <h4>^ ... $</h4>
                     <p>Entire text block</p>
-                    </div>
-                    <div>
-                        <p>/</p>
-                        <h4>^</h4>
-                        <p>\w\d</p>
-                        <h4>$</h4>
-                        <p>/</p>
-                    </div>
-                </section>
-                <h3>Escaping Special Characters</h3>
-                <section>
-                    <div>
+                </div>
+                <div>
+                    <p>/</p>
+                    <h4>^</h4>
+                    <p>\w\d</p>
+                    <h4>$</h4>
+                    <p>/</p>
+                </div>
+            </section>
+            <h3>Escaping Special Characters</h3>
+            <section>
+                <div>
                     <h4>\</h4>
                     <p>. * + ? ( ) { } [ ] ^ \ $ |</p>
-                    </div>
-                    <div>
-                        <p>/</p>
-                         <h4>\</h4>
-                        <p>(</p>
-                        <h4>\</h4>
-                        <p>.</p>
-                        <h4>\</h4>
-                        <p>*</p>
-                         <h4>\</h4>
-                        <p>)</p>
-                        <p>/</p>
-                    </div>
-                </section>
-                <h3>Flags</h3>
-                    <section>
-                    <div>
+                </div>
+                <div>
+                    <p>/</p>
+                    <h4>\</h4>
+                    <p>(</p>
+                    <h4>\</h4>
+                    <p>.</p>
+                    <h4>\</h4>
+                    <p>*</p>
+                    <h4>\</h4>
+                    <p>)</p>
+                    <p>/</p>
+                </div>
+            </section>
+            <h3>Flags</h3>
+            <section>
+                <div>
                     <h4>g</h4>
                     <p>Global flag</p>
-                    </div>
-                    <div>
-                        <p>/\b\d{4}\b/</p>
-                        <h4>g</h4>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/\b\d{4}\b/</p>
+                    <h4>g</h4>
+                </div>
+            </section>
 
-                    <section>
-                    <div>
+            <section>
+                <div>
                     <h4>i</h4>
                     <p>Case-insensitive flag</p>
-                    </div>
-                    <div>
-                        <p>/Ember/</p>
-                        <h4>i</h4>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/Ember/</p>
+                    <h4>i</h4>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>gi</h4>
                     <p>Combined flags</p>
-                    </div>
-                    <div>
-                        <p>/[a-e]+/</p>
-                        <h4>gi</h4>
-                    </div>
-                </section>
-                <h3>Quantifiers</h3>
-                <section>
-                    <div>
+                </div>
+                <div>
+                    <p>/[a-e]+/</p>
+                    <h4>gi</h4>
+                </div>
+            </section>
+            <h3>Quantifiers</h3>
+            <section>
+                <div>
                     <h4>*</h4>
                     <p>0 or more</p>
-                    </div>
-                    <div>
-                        <p>/Zz</p>
-                        <h4>*</h4>
-                        <p>/g</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/Zz</p>
+                    <h4>*</h4>
+                    <p>/g</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>+</h4>
                     <p>1 or more</p>
-                    </div>
-                    <div>
-                        <p>/\b/\D</p>
-                        <h4>+</h4>
-                        <p>\b/g</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/\b/\D</p>
+                    <h4>+</h4>
+                    <p>\b/g</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>?</h4>
                     <p>0 or 1</p>
-                    </div>
-                    <div>
-                        <p>/\w+[-.~]</p>
-                        <h4>?</h4>
-                        <p>\w+/g</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/\w+[-.~]</p>
+                    <h4>?</h4>
+                    <p>\w+/g</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>{n}</h4>
                     <p>n times</p>
-                    </div>
-                    <div>
-                        <p>/^(\s\w+\s)</p>
-                        <h4>{3}</h4>
-                        <p>$/</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/^(\s\w+\s)</p>
+                    <h4>{3}</h4>
+                    <p>$/</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>{n,m}</h4>
                     <p>n to m times</p>
-                    </div>
-                    <div>
-                        <p>/\b\d</p>
-                        <h4>{7,9}</h4>
-                        <p>\b/</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/\b\d</p>
+                    <h4>{7,9}</h4>
+                    <p>\b/</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>{n,}</h4>
                     <p>n or more times</p>
-                    </div>
-                    <div>
-                        <p>/\.</p>
-                        <h4>{5,}</h4>
-                        <p>/g</p>
-                    </div>
-                </section>
-                <h3>Metacharacters</h3>
-                <section>
-                    <div>
+                </div>
+                <div>
+                    <p>/\.</p>
+                    <h4>{5,}</h4>
+                    <p>/g</p>
+                </div>
+            </section>
+            <h3>Metacharacters</h3>
+            <section>
+                <div>
                     <h4>\s</h4>
                     <p>Space</p>
-                    </div>
-                    <div>
-                        <p>/\w</p>
-                        <h4>\s</h4>
-                        <p>\w/g</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/\w</p>
+                    <h4>\s</h4>
+                    <p>\w/g</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>\S</h4>
                     <p>Any character but space</p>
-                    </div>
-                    <div>
-                        <p>/\b</p>
-                        <h4>\S</h4>
-                        <p>{3}\b/g</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/\b</p>
+                    <h4>\S</h4>
+                    <p>{3}\b/g</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>.</h4>
                     <p>Any character</p>
-                    </div>
-                    <div>
-                        <p>/^</p>
-                        <h4>.</h4>
-                        <p>\s</p>
-                        <h4>..</h4>
-                        <p>\s</p>
-                        <h4>...</h4>
-                        <p>/</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/^</p>
+                    <h4>.</h4>
+                    <p>\s</p>
+                    <h4>..</h4>
+                    <p>\s</p>
+                    <h4>...</h4>
+                    <p>/</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>.*?</h4>
                     <p>Make character ungreedy</p>
-                    </div>
-                    <div>
-                        <p>/a</p>
-                        <h4>.*?</h4>
-                        <p>u/g</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/a</p>
+                    <h4>.*?</h4>
+                    <p>u/g</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>\b</h4>
                     <p>Break</p>
-                    </div>
+                </div>
 
-                    <div>
-                        <p>/</p>
-                        <h4>\b</h4>
-                        <p>\w{6,}</p>
-                        <h4>\b</h4>
-                        <p>/g</p>
-                    </div>
-                </section>
+                <div>
+                    <p>/</p>
+                    <h4>\b</h4>
+                    <p>\w{6,}</p>
+                    <h4>\b</h4>
+                    <p>/g</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>\B</h4>
                     <p>Non-break character</p>
-                    </div>
-                    <div>
-                        <p>/</p>
-                        <h4>\B</h4>
-                        <p>[ou]{2}</p>
-                        <h4>\B</h4>
-                        <p>/g</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/</p>
+                    <h4>\B</h4>
+                    <p>[ou]{2}</p>
+                    <h4>\B</h4>
+                    <p>/g</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>\d</h4>
                     <p>Digit</p>
-                    </div>
-                    <div>
-                        <p>/\(</p>
-                        <h4>\d</h4>
-                        <p>{3}\)/g</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/\(</p>
+                    <h4>\d</h4>
+                    <p>{3}\)/g</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>\D</h4>
                     <p>Any character but digit</p>
-                    </div>
-                    <div>
-                        <p>/\.</p>
-                        <h4>\D</h4>
-                        <p>+\b/g</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/\.</p>
+                    <h4>\D</h4>
+                    <p>+\b/g</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>\w</h4>
                     <p>letter/digit/underscore</p>
-                    </div>
-                    <div>
-                        <p>/</p>
-                        <h4>\w</h4>
-                        <p>+$/</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/</p>
+                    <h4>\w</h4>
+                    <p>+$/</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>\W</h4>
                     <p>Any character but letter/digit/underscore</p>
-                    </div>
-                    <div>
-                        <p>/^</p>
-                        <h4>\W</h4>
-                        <p>*$/</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/^</p>
+                    <h4>\W</h4>
+                    <p>*$/</p>
+                </div>
+            </section>
 
-                <h3>Character Classes</h3>
+            <h3>Character Classes</h3>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>[...]</h4>
                     <p>Individual characters</p>
-                    </div>
-                    <div>
-                        <p>/\d</p>
-                        <h4>[2357]</h4>
-                        <p>/g</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/\d</p>
+                    <h4>[2357]</h4>
+                    <p>/g</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>[n-m]</h4>
                     <p>Range of characters n-m</p>
-                    </div>
-                    <div>
-                        <p>/</p>
-                        <h4>[3-6e-v]</h4>
-                        <p>+/g</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/</p>
+                    <h4>[3-6e-v]</h4>
+                    <p>+/g</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>[n-m]</h4>
                     <p>Range of ASCII values</p>
-                    </div>
-                    <div>
-                        <p>/^</p>
-                        <h4>[(-:]</h4>
-                        <p>{4,}$/</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/^</p>
+                    <h4>[(-:]</h4>
+                    <p>{4,}$/</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>[^...]</h4>
                     <p>Characters not in character class</p>
-                    </div>
-                    <div>
-                        <p>/</p>
-                        <h4>[^o-u]</h4>
-                        <p>{5}/</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/</p>
+                    <h4>[^o-u]</h4>
+                    <p>{5}/</p>
+                </div>
+            </section>
 
-                <h3>Captured Groups</h3>
+            <h3>Captured Groups</h3>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>(...|...)</h4>
                     <p>Alternation</p>
-                    </div>
-                    <div>
-                        <p>/</p>
-                        <h4>(</h4>
-                        <p>\d+</p>
-                        <h4>|</h4>
-                        <p>\s+</p>
-                        <h4>)</h4>
-                        <p>/g</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/</p>
+                    <h4>(</h4>
+                    <p>\d+</p>
+                    <h4>|</h4>
+                    <p>\s+</p>
+                    <h4>)</h4>
+                    <p>/g</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>(...)</h4>
                     <p>Group</p>
-                    </div>
-                    <div>
-                        <p>/</p>
-                        <h4>(,\w)</h4>
-                        <p>{3}$/</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/</p>
+                    <h4>(,\w)</h4>
+                    <p>{3}$/</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>(...)\1</h4>
                     <p>Back reference</p>
-                    </div>
-                    <div>
-                        <p>/</p>
-                        <h4>(</h4>
-                        <p>[.?!]</p>
-                        <h4>)\1</h4>
-                        <p>/g</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/</p>
+                    <h4>(</h4>
+                    <p>[.?!]</p>
+                    <h4>)\1</h4>
+                    <p>/g</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>(?&#60;=...)(...)</h4>
                     <p>Positive look behind</p>
-                    </div>
-                    <div>
-                        <p>/</p>
-                        <h4>(?&#60;=</h4>
-                        <p>\b0\.</p>
-                        <h4>)(</h4>
-                        <p>\d+</p>
-                        <h4>)</h4>
-                        <p>/g</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/</p>
+                    <h4>(?&#60;=</h4>
+                    <p>\b0\.</p>
+                    <h4>)(</h4>
+                    <p>\d+</p>
+                    <h4>)</h4>
+                    <p>/g</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>(?&#60;!...)(...)</h4>
                     <p>Negative look behind</p>
-                    </div>
-                    <div>
-                        <p>/</p>
-                        <h4>(?&#60;!</h4>
-                        <p>[cst]</p>
-                        <h4>)</h4>
-                        <p>h/gi</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/</p>
+                    <h4>(?&#60;!</h4>
+                    <p>[cst]</p>
+                    <h4>)</h4>
+                    <p>h/gi</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>(...)(?=...)</h4>
                     <p>Positive look ahead</p>
-                    </div>
-                    <div>
-                        <p>/</p>
-                        <p>\d+</p>
-                        <h4>(?=</h4>
-                        <p>,\d{3}</p>
-                        <h4>)</h4>
-                        <p>/g</p>
+                </div>
+                <div>
+                    <p>/</p>
+                    <p>\d+</p>
+                    <h4>(?=</h4>
+                    <p>,\d{3}</p>
+                    <h4>)</h4>
+                    <p>/g</p>
 
-                    </div>
-                </section>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>(...)(?!...)</h4>
                     <p>Negative look ahead</p>
-                    </div>
-                    <div>
-                        <p>/</p>
-                        <h4>(</h4>
-                        <p>\w+</p>
-                        <h4>)(?!</h4>
-                        <p>\s</p>
-                        <h4>)</h4>
-                        <p>/g</p>
-                    </div>
-                </section>
+                </div>
+                <div>
+                    <p>/</p>
+                    <h4>(</h4>
+                    <p>\w+</p>
+                    <h4>)(?!</h4>
+                    <p>\s</p>
+                    <h4>)</h4>
+                    <p>/g</p>
+                </div>
+            </section>
 
-                <section>
-                    <div>
+            <section>
+                <div>
                     <h4>(?&#60;=...)(...)(?=...)</h4>
                     <p>Combined looks</p>
-                    </div>
-                    <div>
-                        <p>/</p>
-                        <h4>(?&#60;=</h4>
-                        <p>[02468]+</p>
-                        <h4>)</h4>
-                          <p>\d+</p>
-                        <h4>(?=</h4>
-                        <p>[02468]+</p>
-                        <h4>)</h4>
-                        <p>/g</p>
+                </div>
+                <div>
+                    <p>/</p>
+                    <h4>(?&#60;=</h4>
+                    <p>[02468]+</p>
+                    <h4>)</h4>
+                    <p>\d+</p>
+                    <h4>(?=</h4>
+                    <p>[02468]+</p>
+                    <h4>)</h4>
+                    <p>/g</p>
 
-                    </div>
-                </section>
-            </div>    
+                </div>
+            </section>
+        </div>
         {{/if}}
     </section>
 </div>
-
